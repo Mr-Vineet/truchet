@@ -1,7 +1,10 @@
-import { defaultTileSet, generateTiles } from './truchet.js';
+import { defaultTileSet, generateTiles } from "./truchet.js";
 import {
+  constantly,
   borderLands,
   circle,
+  classicSqrtC,
+  classicSqrtF,
   classicAlternate,
   classicSquare,
   classicTruchet,
@@ -16,7 +19,7 @@ import {
   topBottom,
   quarterLand,
   wild,
-} from './tileGenerators.js';
+} from "./tileGenerators.js";
 
 // Vary this. Try any or all of the above
 // Also try each algorithm with a variety of widths and heights
@@ -41,7 +44,14 @@ const tg6 = wild(classicSquare, [1, 1, 0, 0]);
 const tg7 = glitch(classicAlternate, 0.05);
 
 // Try combining glitching, wild and topBottom/leftRight in various combinations
+//spiral
+const tg8 = topBottom(classicSqrtC, classicSqrtF);
+const tg9 = leftRight(
+  topBottom(classicSqrtC, classicSqrtF),
+  topBottom(classicSqrtF, classicSqrtC)
+);
+const [width, height] = Deno.args.map((x) => +x);
 
-const [width, height] = Deno.args.map(x => +x);
+console.log(generateTiles(width, height, tg8));
 
-console.log(generateTiles(width, height, tg3));
+// console.log(generateTiles(width, height, zig));

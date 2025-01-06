@@ -1,12 +1,14 @@
 const inverse =
-  f =>
+  (f) =>
   (...args) =>
     1 - f(...args);
 
-export const constantly = x => () => x;
+export const constantly = (x) => () => x;
 export const zig = (r, c) => c;
 export const zag = (r, c) => r;
 export const classicAlternate = (r, c) => r + c;
+export const classicSqrtC = (r, c) => Math.ceil(Math.sqrt(c));
+export const classicSqrtF = (r, c) => Math.floor(Math.sqrt(c));
 export const classicSquare = (r, c) => r * c;
 export const classicTruchet = () => Math.floor(Math.random() * 1000);
 

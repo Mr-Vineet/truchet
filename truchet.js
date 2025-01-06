@@ -16,7 +16,7 @@ export const generateTiles = (
   for (let row = 0; row < height; row++) {
     let tileLines = Array.from(tileSet[0]).fill('');
     for (let col = 0; col < width; col++) {
-      const tile = tileGenerator(row, col, width, height);
+      const tile = tileGenerator(row, col, width, height);//number 0-999
       const tileId = tile % tileSet.length;
       tileLines = concatLines(tileLines, tileSet[tileId]);
     }
